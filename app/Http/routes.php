@@ -14,3 +14,10 @@
 $app->get('/', function () use ($app) {
     return view("index");
 });
+
+$app->group(['prefix' => 'api/v0', 'namespace' => 'App\Http\Controllers\Api\v0'], function () use ($app) {
+    $app->get('houses', [
+        'as' => 'houses',
+        'uses' => 'HouseController@houses'
+    ]);
+});
