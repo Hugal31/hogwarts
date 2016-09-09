@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: laloge_h
- * Date: 09/09/16
- * Time: 19:00
- */
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 
-class House
+class House extends Model
 {
-
+    public $table = 'house';
+    public $timestamps = false;
 }
