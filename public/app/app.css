@@ -1,0 +1,47 @@
+@font-face {
+    font-family: magic-school;
+    src: url('/fonts/MagicSchool.ttf');
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+
+}
+
+body {
+    font-family: magic-school, serif;
+}
+
+#main-wrapper {
+    margin: auto;
+    width: auto;
+}
+
+@media (min-width: 800px) {
+    #main-wrapper {
+        width: 800px;
+    }
+}
+
+.hourglass {
+    text-align: center;
+    display: inline-block;
+    width: 24%;
+}
+
+.hourglass .house-name {
+    font-size: 3em;
+}
+
+.hourglass .house-crest img {
+    width: 100%;
+}
+
+.hourglass .score {
+    font-size: 2em;
+}
