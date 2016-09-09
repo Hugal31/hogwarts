@@ -10,15 +10,25 @@
 }
 
 html {
-
+    height: 100%;
 }
 
 body {
+    position: relative;
     font-family: magic-school, serif;
+    height: 100%;
+    /*min-height: 100%;*/
+    /* background: url("/img/brick.png"); */
+    -webkit-background-size:;
+    background-size: cover;
 }
 
 #main-wrapper {
-    margin: auto;
+    height: 100%;
+    /*min-height: 100%;*/
+    margin: 0 auto;
+    padding: 0 auto;
+    position: relative;
     width: auto;
 }
 
@@ -29,6 +39,7 @@ body {
 }
 
 .hourglass {
+    height: 100%;
     text-align: center;
     display: inline-block;
     width: 24%;
@@ -38,8 +49,64 @@ body {
     font-size: 3em;
 }
 
-.hourglass .house-crest img {
+.hourglass .hourglass-body {
+    height: 50%;
+    margin: auto;
+    position: relative;
+    width: 65%;
+}
+
+.hourglass .hourglass-body .top {
+    height: 20%;
     width: 100%;
+}
+
+.hourglass .hourglass-body .middle {
+    height: 80%;
+    width: 100%;
+}
+
+.hourglass .hourglass-body .middle .sand {
+    position: absolute;
+    bottom: 0;
+}
+
+.hourglass .hourglass-body .sand {
+    height: 50px;
+    width: 100%;
+}
+
+.hourglass[data-house="slytherin"] .hourglass-body .sand {
+    background-image: url('/img/sand_sly.png');
+}
+
+.hourglass[data-house="ravenclaw"] .hourglass-body .sand {
+    background-image: url('/img/sand_rav.png');
+}
+
+.hourglass[data-house="gryffindor"] .hourglass-body .sand {
+    background-image: url('/img/sand_gry.png');
+}
+
+.hourglass[data-house="hufflepuff"] .hourglass-body .sand {
+    background-image: url('/img/sand_huf.png');
+}
+
+.hourglass .hourglass-body .bottom {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: -100px;
+    z-index: 5;
+}
+
+.hourglass .hourglass-body .bottom img {
+}
+
+.hourglass .house-crest img {
+    position: relative;
+    width: 100%;
+    z-index: 10;
 }
 
 .hourglass .score {
