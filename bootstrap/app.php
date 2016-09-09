@@ -82,6 +82,10 @@ $app->singleton(
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
+if (env('APP_DEBUG') === true) {
+    $app->register(Appzcoder\LumenRoutesList\RoutesCommandServiceProvider::class);
+}
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
