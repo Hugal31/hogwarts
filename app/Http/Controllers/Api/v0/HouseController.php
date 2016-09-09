@@ -60,6 +60,8 @@ class HouseController extends Controller
                 default:
                     return response()->json(['error' => 'Invalid action'], 400);
             }
+            if ($house->score < 0)
+                $house->score = 0;
             $house->save();
             return response()->json($house);
         }
