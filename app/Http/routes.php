@@ -15,9 +15,19 @@ $app->get('/', function () use ($app) {
     return view("index");
 });
 
-$app->group(['prefix' => 'api/v0', 'namespace' => 'App\Http\Controllers\Api\v0'], function () use ($app) {
-    $app->get('houses', [
+$app->group(['prefix' => 'api/v0/houses', 'namespace' => 'App\Http\Controllers\Api\v0'], function () use ($app) {
+    $app->get('', [
         'as' => 'houses',
         'uses' => 'HouseController@houses'
+    ]);
+
+    $app->get('{house}', [
+        'as' => 'house',
+        'uses' => 'HouseController@house',
+    ]);
+
+    $app->put('{house}', [
+        'as' => 'putHouse',
+        'uses' => 'HouseController@putHouse',
     ]);
 });
