@@ -9,10 +9,10 @@ Simple Hogwarts' houses points hourglasses for Epitech's Pool
 3. Copy .env.example to .env and fill the fields
 4. Run
 
-```
-composer install
-php artisan migrate
-php artisan db:seed
-```
+  ```
+  composer install
+  php artisan migrate
+  php artisan db:seed
+  ```
 
 5. Enjoy
