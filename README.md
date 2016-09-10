@@ -16,3 +16,11 @@ Simple Hogwarts' houses points hourglasses for Epitech's Pool
   ```
 
 5. Enjoy
+
+
+## Install with Docker
+
+1. Install docker
+2. Run ```./start_docker.sh path```, with path the location where the mysql database will be stored.
+3. Wait about 30 second after the second container launch, the database may take some time
+4. Enjoy
