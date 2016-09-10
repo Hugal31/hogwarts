@@ -43,7 +43,7 @@ class HouseController extends Controller
         if (is_null($house))
             return response()->json(['error' => 'House not found'], 404);
 
-        if ($request->has('action') and $request->has('amount') and is_numeric($request->input('amount'))) {
+        if ($request->has(['action', 'amount']) and is_numeric($request->input('amount'))) {
             switch ($request->input('action')) {
                 case "add":
                     $house->score += (int)$request->input('amount');

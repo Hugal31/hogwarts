@@ -28,5 +28,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected $hidden = [
         'password',
+        'api_token'
     ];
+
+    protected $table = 'user';
+
+    public $timestamps = false;
 }
