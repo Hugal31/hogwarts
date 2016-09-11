@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\v0;
 
 use App\Http\Controllers\Controller;
+use App\Models\Access;
 use App\Models\House;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HouseController extends Controller
@@ -38,31 +40,47 @@ class HouseController extends Controller
     }
 
     public function putHouse(Request $request, $house) {
-        $house = $this->get_house($house);
 
-        if (is_null($house))
-            return response()->json(['error' => 'House not found'], 404);
+        if ($request->has(['action', 'amount'])
+            and is_numeric($request->input('amount'))
+            and (int)$request->input('amount') > 0) {
 
-        if ($request->has(['action', 'amount']) and is_numeric($request->input('amount'))) {
-            switch ($request->input('action')) {
+            $action = $request->input('action');
+            $amount = (int)$request->input('amount');
+            $house = $this->get_house($house);
+
+            if (is_null($house))
+                return response()->json(['error' => 'House not found'], 404);
+
+            switch ($action) {
                 case "add":
-                    $house->score += (int)$request->input('amount');
+                    $house->score += $amount;
                     break;
 
                 case "remove":
-                    $house->score -= (int)$request->input('amount');
+                    $house->score -= $amount;
                     break;
 
                 case "set":
-                    $house->score = (int)$request->input('amount');
+                    $house->score = $amount;
                     break;
 
                 default:
                     return response()->json(['error' => 'Invalid action'], 400);
             }
+
             if ($house->score < 0)
                 $house->score = 0;
             $house->save();
+
+            $access = new Access([
+                'amount' => $amount,
+                'aciton' => $action
+            ]);
+            $access->user()->associate(User::where('api_token', $request->input('key'))->first());
+            $access->house()->associate($house);
+            $access->save();
+
             return response()->json($house);
         }
 

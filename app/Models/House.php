@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-    public $table = 'house';
+    protected $table = 'house';
     public $timestamps = false;
+
+    public function accesses()
+    {
+        return $this->hasMany(Access::class, 'house_id');
+    }
 }

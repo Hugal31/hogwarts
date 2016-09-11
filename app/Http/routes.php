@@ -12,7 +12,11 @@
 */
 
 $app->get('/', function () use ($app) {
-    return view("index");
+    return view('index');
+});
+
+$app->get('/admin', function () use ($app) {
+    return view('admin');
 });
 
 $app->group([
@@ -40,4 +44,9 @@ $app->group([
         'uses' => 'AuthController@postLogin'
     ]);
 
+    $app->get('accesses', [
+        'as' => 'api.v0.accesses',
+        'uses' => 'AccessController@getAccesses',
+        'middleware' => 'auth'
+    ]);
 });
