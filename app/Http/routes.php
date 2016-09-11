@@ -20,32 +20,32 @@ $app->get('/admin', function () use ($app) {
 });
 
 $app->group([
-    'prefix' => 'api/v0/',
-    'namespace' => 'App\Http\Controllers\Api\v0'], function () use ($app) {
+    'prefix' => 'api/v1/',
+    'namespace' => 'App\Http\Controllers\Api\v1'], function () use ($app) {
 
     $app->get('houses', [
-        'as' => 'api.v0.houses',
+        'as' => 'api.v1.houses',
         'uses' => 'HouseController@houses'
     ]);
 
     $app->get('houses/{house}', [
-        'as' => 'api.v0.houses.house',
+        'as' => 'api.v1.houses.house',
         'uses' => 'HouseController@house',
     ]);
 
     $app->put('houses/{house}', [
-        'as' => 'api.v0.houses.putHouse',
+        'as' => 'api.v1.houses.putHouse',
         'uses' => 'HouseController@putHouse',
         'middleware' => 'auth'
     ]);
 
     $app->post('auth', [
-        'as' => 'api.v0.auth',
+        'as' => 'api.v1.auth',
         'uses' => 'AuthController@postLogin'
     ]);
 
     $app->get('accesses', [
-        'as' => 'api.v0.accesses',
+        'as' => 'api.v1.accesses',
         'uses' => 'AccessController@getAccesses',
         'middleware' => 'auth'
     ]);

@@ -19,7 +19,7 @@ hogwartsApp.controller('HourglassController', function HourglassController($scop
             return maxScore;
         };
 
-        $http.get('/api/v0/houses').then(function(response) {
+        $http.get('/api/v1/houses').then(function(response) {
             $scope.maxScore = calcMaxScore(response.data);
             response.data.forEach(function (house) {
                 $scope.houses[house.name] = house;
