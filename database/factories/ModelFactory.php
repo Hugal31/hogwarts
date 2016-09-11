@@ -11,9 +11,11 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
+        'api_token' => str_random(32),
+        'password' => \Illuminate\Support\Facades\Hash::make($faker->password),
     ];
 });
