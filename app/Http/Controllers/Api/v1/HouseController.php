@@ -75,7 +75,7 @@ class HouseController extends Controller
 
             $access = new Access([
                 'amount' => $amount,
-                'aciton' => $action
+                'action' => $action
             ]);
             $access->user()->associate(User::where('api_token', $request->input('key'))->first());
             $access->house()->associate($house);

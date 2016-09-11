@@ -36,7 +36,7 @@ $app->group([
     $app->put('houses/{house}', [
         'as' => 'api.v1.houses.putHouse',
         'uses' => 'HouseController@putHouse',
-        'middleware' => 'auth'
+        'middleware' => 'apiAuth'
     ]);
 
     $app->post('auth', [
@@ -47,6 +47,6 @@ $app->group([
     $app->get('accesses', [
         'as' => 'api.v1.accesses',
         'uses' => 'AccessController@getAccesses',
-        'middleware' => 'auth'
+        'middleware' => 'apiAuth'
     ]);
 });

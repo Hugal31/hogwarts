@@ -22,7 +22,7 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         if (!$request->has(['email', 'password'])) {
-            return response()->json(['error' => "Missing email or password", 401]);
+            return response()->json(['error' => "Missing email or password"], 401);
         }
 
         $user = User::where([
