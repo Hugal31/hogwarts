@@ -31,3 +31,11 @@ body {
         width: 800px;
     }
 }
+
+.operation {
+    text-align: center;
+}
+
+img.small {
+    height: 2em;
+}

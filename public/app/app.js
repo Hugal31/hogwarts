@@ -59,7 +59,7 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
             $scope.hasToken = true;
             $scope.token = response.data.key;
             $cookies.put('api_token', $scope.token);
-            $scope.updateHistory();
+            $scope.updateOperations();
         }, function () {
             $scope.invalidLogin = true;
         });
@@ -71,10 +71,20 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
         $scope.token = null;
     };
 
-    $scope.updateHistory = function () {
+    $scope.updateOperations = function () {
         $http.get('/api/v1/operations?key=' + $scope.token).then(function (response) {
             $scope.operations = response.data;
             console.log(response.data);
+        });
+    };
+
+    $scope.houseOperation = function (house, action, amount) {
+        $http.put('/api/v1/houses/' + house, {
+            action: action,
+            amount: amount,
+            key: $scope.token
+        }).then(function () {
+            $scope.updateOperations();
         });
     };
 
@@ -82,7 +92,7 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
     $scope.hasToken = Boolean($scope.token);
     if ($scope.hasToken) {
         $scope.invalidLogin = false;
-        $scope.updateHistory();
+        $scope.updateOperations();
     }
 
     $scope.operations = [];
@@ -91,5 +101,11 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
         email: '',
         password: ''
     };
+
+    $scope.houseOperationData = {
+        house: "slytherin",
+        action: "add",
+        amount: undefined
+    }
 
 });

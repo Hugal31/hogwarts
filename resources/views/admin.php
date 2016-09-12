@@ -26,9 +26,31 @@
         </p>
       </div>
       <div ng-switch-when="true">
-        <div id="admin"></div>
+        <div id="admin">
+          <form name="houseOperationForm" ng-submit="houseOperation(houseOperationData.house, houseOperationData.action, houseOperationData.amount)">
+            <label for="houseSelect">
+              House:
+              <img src="/img/shield_{{houseOperationData.house | shortHouse}}.png" alt="House's shield" class="small">
+            </label>
+            <select name="house" id="houseSelect" ng-model="houseOperationData.house">
+              <option value="slytherin">Slytherin</option>
+              <option value="ravenclaw">Ravenclaw</option>
+              <option value="gryffindor">Gryffindor</option>
+              <option value="hufflepuff">Hufflepuff</option>
+            </select>
+            <label for="actionSelect">Action:</label>
+            <select name="action" id="actionSelect" ng-model="houseOperationData.action">
+              <option value="add">Add</option>
+              <option value="remove">Remove</option>
+              <option value="set">Set</option>
+            </select>
+            <label for="amount">Amount:</label>
+            <input type="number" name="amount" id="amountInput" ng-model="houseOperationData.amount"/>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
         <div id="operations">
-          <table border="1" cellpadding="8">
+          <table border="1" cellpadding="8" class="operations">
             <thead>
               <tr>
                 <td>Name</td>
@@ -41,7 +63,10 @@
             <tbody ng-repeat="operation in operations">
               <tr>
                 <td>{{operation.user.name}}</td>
-                <td>{{operation.house.name | capitalize}}</td>
+                <td>
+                  <img src="/img/shield_{{operation.house.name | shortHouse}}.png" alt="House's shield" class="small"/>
+                  {{operation.house.name | capitalize}}
+                </td>
                 <td>{{operation.action}}</td>
                 <td>{{operation.amount}}</td>
                 <td>{{operation.updated_at}}</td>
