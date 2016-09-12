@@ -1,0 +1,33 @@
+@font-face {
+    font-family: magic-school;
+    src: url('/fonts/MagicSchool.ttf');
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    height: 100%;
+}
+
+#main-wrapper {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 auto;
+    position: relative;
+    width: auto;
+}
+
+@media (min-width: 800px) {
+    #main-wrapper {
+        width: 800px;
+    }
+}
