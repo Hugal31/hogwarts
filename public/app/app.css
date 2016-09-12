@@ -63,23 +63,33 @@ body {
 }
 
 .hourglass .hourglass-body {
-    -webkit-flex: 1; /* Safari 6.1+ */
-    -ms-flex: 1; /* IE 10 */
     flex: 1;
     margin: auto;
     position: relative;
     width: 65%;
+    display: flex;
+    -ms-flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
 }
 
 .hourglass .hourglass-body .top {
-    height: 20%;
+    height: 10px;
     width: 100%;
+    background: url('/img/glass-top.png') top no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
 }
 
 .hourglass .hourglass-body .middle {
+    flex: 1;
     position: relative;
     height: 80%;
     width: 100%;
+    background: url('/img/glass.png') bottom center repeat-y;
+    -webkit-background-size: 100%;
+    background-size: 100%;
 }
 
 .hourglass .hourglass-body .middle .sand {
@@ -92,6 +102,8 @@ body {
     width: 100%;
     transition: height 0.5s linear;
     background-position: bottom;
+    -webkit-background-size: 100%;
+    background-size: 100%;
 }
 
 .hourglass[data-house="slytherin"] .hourglass-body .sand {
