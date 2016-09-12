@@ -13,6 +13,7 @@
   </head>
   <body ng-controller="AdminController">
     <div id="main-wrapper" ng-switch="hasToken">
+
       <div ng-switch-default>
         <form name="loginForm" ng-submit="login(loginData.email, loginData.password)">
           <label for="email">Email :</label>
@@ -25,9 +26,11 @@
           Invalid email/password combination
         </p>
       </div>
+
       <div ng-switch-when="true">
+
         <div id="admin">
-          <form name="houseOperationForm" ng-submit="houseOperation(houseOperationData.house, houseOperationData.action, houseOperationData.amount)">
+          <form name="houseOperationForm" ng-submit="submitHouseOperationForm()">
             <label for="houseSelect">
               House:
               <img src="/img/shield_{{houseOperationData.house | shortHouse}}.png" alt="House's shield" class="small">
@@ -45,10 +48,11 @@
               <option value="set">Set</option>
             </select>
             <label for="amount">Amount:</label>
-            <input type="number" name="amount" id="amountInput" ng-model="houseOperationData.amount"/>
+            <input type="number" name="amount" id="amountInput" ng-model="houseOperationData.amount" required/>
             <input type="submit" value="Submit">
           </form>
         </div>
+
         <div id="operations">
           <table border="1" cellpadding="8" class="operations">
             <thead>

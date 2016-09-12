@@ -88,6 +88,13 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
         });
     };
 
+    $scope.submitHouseOperationForm = function() {
+        $scope.houseOperation($scope.houseOperationData.house,
+            $scope.houseOperationData.action,
+            $scope.houseOperationData.amount);
+        $scope.houseOperationData.amount = undefined;
+    };
+
     $scope.token = $cookies.get('api_token');
     $scope.hasToken = Boolean($scope.token);
     if ($scope.hasToken) {
