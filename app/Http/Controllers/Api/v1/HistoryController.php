@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\Access;
+use App\Models\Operation;
 
-class AccessController extends Controller
+class HistoryController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -19,8 +19,8 @@ class AccessController extends Controller
 
     public function getAccesses()
     {
-        $accesses = Access::orderBy('created_at', 'desc')->with(['user', 'house'])->limit(20)->get(); // TODO limit
+        $accesses = Operation::orderBy('created_at', 'desc')->with(['user', 'house'])->limit(20)->get(); // TODO limit
 
-        return response()->json(['accesses' => $accesses]);
+        return response()->json($accesses);
     }
 }

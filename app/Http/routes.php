@@ -44,9 +44,9 @@ $app->group([
         'uses' => 'AuthController@postLogin'
     ]);
 
-    $app->get('accesses', [
-        'as' => 'api.v1.accesses',
-        'uses' => 'AccessController@getAccesses',
+    $app->get('operations', [
+        'as' => 'api.v1.operations',
+        'uses' => 'HistoryController@getAccesses',
         'middleware' => 'apiAuth'
     ]);
 });

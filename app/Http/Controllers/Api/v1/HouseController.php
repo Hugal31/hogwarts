@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\Access;
+use App\Models\Operation;
 use App\Models\House;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -73,13 +73,13 @@ class HouseController extends Controller
                 $house->score = 0;
             $house->save();
 
-            $access = new Access([
+            $operation = new Operation([
                 'amount' => $amount,
                 'action' => $action
             ]);
-            $access->user()->associate(User::where('api_token', $request->input('key'))->first());
-            $access->house()->associate($house);
-            $access->save();
+            $operation->user()->associate(User::where('api_token', $request->input('key'))->first());
+            $operation->house()->associate($house);
+            $operation->save();
 
             return response()->json($house);
         }

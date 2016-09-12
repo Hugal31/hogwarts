@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Access extends Model
+class Operation extends Model
 {
-    protected $table = 'access';
+    protected $table = 'operation';
     protected $fillable = ['amount', 'action'];
     public $timestamps = true;
 

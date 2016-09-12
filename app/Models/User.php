@@ -35,8 +35,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public $timestamps = false;
 
-    public function accesses()
+    public function operations()
     {
-        return $this->hasMany(Access::class, 'user_id');
+        return $this->hasMany(Operation::class, 'user_id');
     }
 }

@@ -9,8 +9,8 @@ class House extends Model
     protected $table = 'house';
     public $timestamps = false;
 
-    public function accesses()
+    public function operations()
     {
-        return $this->hasMany(Access::class, 'house_id');
+        return $this->hasMany(Operation::class, 'house_id');
     }
 }

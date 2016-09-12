@@ -2,8 +2,6 @@
 
 use Laravel\Lumen\Testing\DatabaseTransactions;
 
-use App\Models\Access;
-use App\Models\House;
 use Illuminate\Support\Facades\Hash;
 
 class ApiTest extends TestCase
@@ -66,9 +64,9 @@ class ApiTest extends TestCase
         ])->assertResponseStatus(400);
     }
 
-    public function testAccesses()
+    public function testOperations()
     {
-        $this->get('/api/v1/accesses')->assertResponseStatus(401);
+        $this->get('/api/v1/operations')->assertResponseStatus(401);
 
         $this->actingAs($this->user);
 
@@ -78,7 +76,7 @@ class ApiTest extends TestCase
             'amount' => 666
         ])->assertResponseStatus(200);
 
-        $this->get('/api/v1/accesses')->assertResponseStatus(200);
+        $this->get('/api/v1/operations')->assertResponseStatus(200);
         $this->seeJson([
             'amount'=> 666,
             'action'=> 'set']);
@@ -87,7 +85,6 @@ class ApiTest extends TestCase
             'email'=> $this->user->email
         ]);
         $this->seeJson([
-            'id' => 4,
             'name'=> 'slytherin',
             'score'=> 666
         ]);
