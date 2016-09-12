@@ -18,6 +18,7 @@
           <div class="house-name">Serpentard</div>
           <div class="hourglass-body">
             <div class="top"></div>
+            <div class="middle-top"></div>
             <div class="middle">
               <div class="sand"></div>
             </div>
@@ -32,6 +33,7 @@
         <div class="house-name">Serdaigle</div>
           <div class="hourglass-body">
             <div class="top"></div>
+            <div class="middle-top"></div>
             <div class="middle">
             <div class="sand"></div>
             </div>
@@ -46,6 +48,7 @@
           <div class="house-name">Gryffondor</div>
           <div class="hourglass-body">
             <div class="top"></div>
+            <div class="middle-top"></div>
             <div class="middle">
               <div class="sand"></div>
             </div>
@@ -60,6 +63,7 @@
           <div class="house-name">Poufsouffle</div>
           <div class="hourglass-body">
             <div class="top"></div>
+            <div class="middle-top"></div>
             <div class="middle">
               <div class="sand"></div>
             </div>
