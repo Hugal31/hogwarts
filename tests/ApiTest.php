@@ -73,13 +73,15 @@ class ApiTest extends TestCase
         $this->put('/api/v1/houses/slytherin', [
             'key' => $this->user->api_token,
             'action' => 'set',
-            'amount' => 666
+            'amount' => 666,
+            'reason' => 'TEST'
         ])->assertResponseStatus(200);
 
         $this->get('/api/v1/operations')->assertResponseStatus(200);
         $this->seeJson([
             'amount'=> 666,
-            'action'=> 'set']);
+            'action'=> 'set',
+            'reason' => 'TEST']);
         $this->seeJson([
             'name'=> $this->user->name,
             'email'=> $this->user->email

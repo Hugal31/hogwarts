@@ -78,11 +78,12 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
         });
     };
 
-    $scope.houseOperation = function (house, action, amount) {
+    $scope.houseOperation = function (house, action, amount, reason) {
         $http.put('/api/v1/houses/' + house, {
             action: action,
             amount: amount,
-            key: $scope.token
+            key: $scope.token,
+            reason: reason
         }).then(function () {
             $scope.updateOperations();
         });
@@ -91,8 +92,10 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
     $scope.submitHouseOperationForm = function() {
         $scope.houseOperation($scope.houseOperationData.house,
             $scope.houseOperationData.action,
-            $scope.houseOperationData.amount);
+            $scope.houseOperationData.amount,
+            $scope.houseOperationData.reason);
         $scope.houseOperationData.amount = undefined;
+        $scope.houseOperationData.reason = null;
     };
 
     $scope.token = $cookies.get('api_token');
@@ -112,7 +115,8 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
     $scope.houseOperationData = {
         house: "slytherin",
         action: "add",
-        amount: undefined
+        amount: undefined,
+        reason: ''
     }
 
 });

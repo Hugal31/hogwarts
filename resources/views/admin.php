@@ -49,6 +49,7 @@
             </select>
             <label for="amount">Amount:</label>
             <input type="number" name="amount" id="amountInput" ng-model="houseOperationData.amount" required/>
+            <textarea name="reason" id="reasonInput" cols="30" rows="10" ng-model="houseOperationData.reason"></textarea>
             <input type="submit" value="Submit">
           </form>
         </div>
@@ -57,11 +58,12 @@
           <table border="1" cellpadding="8" class="operations">
             <thead>
               <tr>
-                <td>Name</td>
+                <td>User</td>
                 <td>House</td>
                 <td>Operation</td>
                 <td>Amount</td>
                 <td>Date</td>
+                <td>Reason</td>
               </tr>
             </thead>
             <tbody ng-repeat="operation in operations">
@@ -74,6 +76,7 @@
                 <td>{{operation.action}}</td>
                 <td>{{operation.amount}}</td>
                 <td>{{operation.updated_at}}</td>
+                <td>{{operation.reason}}</td>
               </tr>
             </tbody>
           </table>

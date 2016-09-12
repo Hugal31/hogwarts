@@ -46,7 +46,7 @@ $app->group([
 
     $app->get('operations', [
         'as' => 'api.v1.operations',
-        'uses' => 'HistoryController@getAccesses',
+        'uses' => 'OperationController@getAccesses',
         'middleware' => 'apiAuth'
     ]);
 });

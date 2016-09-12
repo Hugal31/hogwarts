@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\Controller;
 use App\Models\Operation;
 
-class HistoryController extends Controller
+class OperationController extends Controller
 {
     /**
      * Create a new controller instance.

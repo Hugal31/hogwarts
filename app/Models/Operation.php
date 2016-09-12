@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Operation extends Model
 {
     protected $table = 'operation';
-    protected $fillable = ['amount', 'action'];
+    protected $fillable = ['amount', 'action', 'reason'];
     public $timestamps = true;
 
     public function user()

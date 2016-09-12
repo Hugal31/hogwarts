@@ -77,6 +77,8 @@ class HouseController extends Controller
                 'amount' => $amount,
                 'action' => $action
             ]);
+            if ($request->get('reason'))
+                $operation->reason = $request->get('reason');
             $operation->user()->associate(User::where('api_token', $request->input('key'))->first());
             $operation->house()->associate($house);
             $operation->save();
