@@ -1,0 +1,138 @@
+html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    font-family: magic-school, serif;
+    height: 100%;
+    /* background: url("/img/brick.png"); */
+    -webkit-background-size:;
+    background-size: cover;
+}
+
+#main-wrapper {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 auto;
+    position: relative;
+    width: auto;
+}
+
+@media (min-width: 800px) {
+    #main-wrapper {
+        width: 800px;
+    }
+}
+
+.hourglass {
+    height: 95%;
+    text-align: center;
+    display: inline-block;
+    width: 24%;
+}
+
+.hourglass .container {
+    position: relative;
+    height: 100%;
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    -ms-flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.hourglass .house-name {
+    font-size: 3em;
+}
+
+.hourglass .hourglass-body {
+    flex: 1;
+    margin: auto;
+    position: relative;
+    width: 65%;
+    display: flex;
+    -ms-flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.hourglass .hourglass-body .top {
+    height: 10px;
+    width: 100%;
+    background: url('/img/glass-top.png') top no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.hourglass .hourglass-body .middle-top {
+    background: url('/img/glass.png') bottom center repeat-y;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    height: 10%;
+}
+
+.hourglass .hourglass-body .middle {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    background: url('/img/glass.png') bottom center repeat-y;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.hourglass .hourglass-body .middle .sand {
+    position: absolute;
+    bottom: 0;
+}
+
+.hourglass .hourglass-body .sand {
+    height: 0;
+    width: 100%;
+    transition: height 0.5s linear;
+    background-position: bottom;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.hourglass[data-house="slytherin"] .hourglass-body .sand {
+    background-image: url('/img/sand_sly.png');
+}
+
+.hourglass[data-house="ravenclaw"] .hourglass-body .sand {
+    background-image: url('/img/sand_rav.png');
+}
+
+.hourglass[data-house="gryffindor"] .hourglass-body .sand {
+    background-image: url('/img/sand_gry.png');
+}
+
+.hourglass[data-house="hufflepuff"] .hourglass-body .sand {
+    background-image: url('/img/sand_huf.png');
+}
+
+.hourglass .hourglass-body .bottom {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: -100px;
+    z-index: 5;
+}
+
+.hourglass .house-crest {
+}
+
+.hourglass .house-crest img {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+.hourglass .score {
+    font-size: 2.5em;
+}

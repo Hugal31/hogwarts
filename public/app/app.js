@@ -1,4 +1,4 @@
-var hogwartsApp = angular.module('hogwartsApp', ['ngCookies']);
+var hogwartsApp = angular.module('hogwartsApp', ['ngCookies', 'pascalprecht.translate']);
 
 // Short house name
 hogwartsApp
@@ -6,14 +6,28 @@ hogwartsApp
         return function (house) {
             return house.substr(0, 3);
         };
-    })
-    .filter('capitalize', function() {
-        return function(input) {
-            return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
-        }
     });
 
-hogwartsApp.controller('HourglassController', function ($scope, $http, $interval) {
+hogwartsApp.config(function ($translateProvider) {
+    $translateProvider.translations('fr', {
+	'slytherin': 'serpentard',
+	'ravenclaw': 'serdaigle',
+	'gryffindor': 'gryffondor',
+	'hufflepuff': 'poufsouffle',
+	'house': 'maison',
+	'user': 'utilisateur',
+	'operation': 'operation',
+	'amount': 'montant',
+	'reason': 'raison',
+	'add': 'ajouter',
+	'remove': 'retirer',
+	'set': 'fixer'
+    });
+});
+
+hogwartsApp.controller('HourglassController', function ($scope, $http, $interval, $translate) {
+
+    $translate.use('fr'); // TODO Change
 
     $scope.interval = 30000;
     $scope.maxScore = 200;
@@ -44,11 +58,13 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
 
     $scope.update();
 
-    // Refresh every minute
+    // Refresh scores
     $interval($scope.update, $scope.interval);
 });
 
-hogwartsApp.controller('AdminController', function ($scope, $cookies, $http) {
+hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $translate) {
+
+    $translate.use('fr'); // TODO Change
 
     $scope.login = function (email, password) {
         $http.post('/api/v1/auth', {
