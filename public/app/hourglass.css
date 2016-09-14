@@ -54,7 +54,7 @@ body {
     flex: 1;
     margin: auto;
     position: relative;
-    width: 65%;
+    width: 128px;
     display: flex;
     -ms-flex-direction: column;
     -moz-flex-direction: column;
@@ -63,19 +63,44 @@ body {
 }
 
 .hourglass .hourglass-body .top {
-    height: 10px;
+    height: 140px;
     width: 100%;
-    background: url('/img/glass-top.png') top no-repeat;
+    background: top no-repeat;
     -webkit-background-size: 100%;
     background-size: 100%;
+    z-index: 10;
 }
 
-.hourglass .hourglass-body .middle-top {
+.hourglass[data-house="slytherin"] .hourglass-body .top{
+    background-image: url('/img/hourglass_top.png'), url('/img/sand_sly_top.png');
+}
+
+.hourglass[data-house="ravenclaw"] .hourglass-body .top {
+    background-image: url('/img/hourglass_top.png'), url('/img/sand_rav_top.png');
+}
+
+.hourglass[data-house="gryffindor"] .hourglass-body .top {
+    background-image: url('/img/hourglass_top.png'), url('/img/sand_gry_top.png');
+}
+
+.hourglass[data-house="hufflepuff"] .hourglass-body .top {
+    background-image: url('/img/hourglass_top.png'), url('/img/sand_huf_top.png');
+}
+
+/*
+.hourglass .hourglass-body .top .sand {
+    mask-image: url(https://mdn.mozillademos.org/files/12676/star.svg);
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+}
+*/
+/*.hourglass .hourglass-body .middle-top {
     background: url('/img/glass.png') bottom center repeat-y;
     -webkit-background-size: 100%;
     background-size: 100%;
     height: 10%;
-}
+}*/
 
 .hourglass .hourglass-body .middle {
     flex: 1;

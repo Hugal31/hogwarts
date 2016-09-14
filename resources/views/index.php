@@ -20,7 +20,6 @@
           <div class="house-name capitalize">{{house | translate}}</div>
           <div class="hourglass-body">
             <div class="top"></div>
-            <div class="middle-top"></div>
             <div class="middle">
               <div class="sand"></div>
             </div>
