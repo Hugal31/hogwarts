@@ -110,7 +110,8 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
             $scope.houseOperationData.action,
             $scope.houseOperationData.amount,
             $scope.houseOperationData.reason);
-        $scope.houseOperationData.amount = undefined;
+        $scope.houseOperationData.amount = 0;
+        $scope.houseOperationData.action = 'add';
         $scope.houseOperationData.reason = null;
     };
 

@@ -43,7 +43,9 @@ class HouseController extends Controller
 
         if ($request->has(['action', 'amount'])
             and is_numeric($request->input('amount'))
-            and (int)$request->input('amount') > 0) {
+            and ((int)$request->input('amount') > 0
+                or ((int)$request->input('amount') == 0
+                    and $request->get('action') == 'set'))) {
 
             $action = $request->input('action');
             $amount = (int)$request->input('amount');

@@ -15,9 +15,9 @@ body {
     width: auto;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     #main-wrapper {
-        width: 800px;
+        width: 1000px;
     }
 }
 
@@ -27,4 +27,8 @@ body {
 
 img.small {
     height: 2em;
+}
+
+.valign-shield {
+    vertical-align: 0.5em;
 }

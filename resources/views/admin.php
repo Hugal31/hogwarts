@@ -50,7 +50,7 @@
               <option value="set">{{'set'|translate}}</option>
             </select>
             <label for="amountInput">{{'amount'|translate}}:</label>
-            <input type="number" name="amount" id="amountInput" ng-model="houseOperationData.amount" required/>
+            <input type="number" name="amount" min="0" id="amountInput" ng-model="houseOperationData.amount" required/>
             <label for="reasonInput">{{'reason'|translate}}</label>
             <textarea name="reason" id="reasonInput" cols="30" rows="10" ng-model="houseOperationData.reason"></textarea>
             <input type="submit" value="Submit">
@@ -74,7 +74,7 @@
                 <td>{{operation.user.name}}</td>
                 <td class="capitalize">
                   <img src="/img/shield_{{operation.house.name | shortHouse}}.png" alt="House's shield" class="small"/>
-                  {{operation.house.name | translate}}
+                  <span class="valign-shield">{{operation.house.name | translate}}</span>
                 </td>
                 <td>{{operation.action | translate}}</td>
                 <td>{{operation.amount}}</td>

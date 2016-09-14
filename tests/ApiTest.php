@@ -40,11 +40,11 @@ class ApiTest extends TestCase
         $this->put('/api/v1/houses/gryffindor', [
             'key' => $this->user->api_token,
             'action' => 'set',
-            'amount' => 42
+            'amount' => 0
         ])->assertResponseStatus(200);
         $this->seeJson([
             'name' => 'gryffindor',
-            'score' => 42
+            'score' => 0
         ]);
 
         $this->put('/api/v1/houses/gryffindor', [
