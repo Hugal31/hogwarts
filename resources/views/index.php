@@ -20,6 +20,8 @@
         <div class="container">
           <div class="hourglass-body">
             <div class="top">
+              <div class="sand"></div>
+              <div class="hourglass-top"></div>
               <!--div class="score">{{houses[house].score}}</div-->
             </div>
             <div class="middle">

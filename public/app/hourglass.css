@@ -65,26 +65,26 @@ body {
 .hourglass .hourglass-body .top {
     height: 140px;
     width: 100%;
-    background: top no-repeat;
+}
+
+.hourglass .hourglass-body .top .sand {
+    height: 100%;
+    width: 100%;
+    background: top repeat;
     -webkit-background-size: 100%;
     background-size: 100%;
+    -webkit-mask-image: url(/img/hourglass_mask.svg);
+    mask-image: url(/img/hourglass_mask.svg);
+    z-index: 5;
+}
+
+.hourglass .hourglass-body .top .hourglass-top {
+    position: absolute;
+    top: 0;
+    background: url('/img/hourglass_top.png') top no-repeat;
+    height: 100%;
+    width: 100%;
     z-index: 10;
-}
-
-.hourglass[data-house="slytherin"] .hourglass-body .top{
-    background-image: url('/img/hourglass_top.png'), url('/img/sand_sly_top.png');
-}
-
-.hourglass[data-house="ravenclaw"] .hourglass-body .top {
-    background-image: url('/img/hourglass_top.png'), url('/img/sand_rav_top.png');
-}
-
-.hourglass[data-house="gryffindor"] .hourglass-body .top {
-    background-image: url('/img/hourglass_top.png'), url('/img/sand_gry_top.png');
-}
-
-.hourglass[data-house="hufflepuff"] .hourglass-body .top {
-    background-image: url('/img/hourglass_top.png'), url('/img/sand_huf_top.png');
 }
 
 .hourglass .hourglass-body .middle {
@@ -113,6 +113,11 @@ body {
     100% {background-position: left 128px top 128px;}
 }
 
+@keyframes move-sand-ru {
+    0% {background-position: 0 0;}
+    100% {background-position: left -128px top -128px;}
+}
+
 .hourglass .hourglass-body .middle .sand {
     position: absolute;
     bottom: -50px;
@@ -122,16 +127,32 @@ body {
     animation-name: move-sand-ld;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-duration: 15s;
-    height: 0;
+    animation-duration: 10s;
     width: 100%;
     transition: height 0.5s linear;
     background-position: bottom;
     -webkit-background-size: 100%;
     background-size: 100%;
+    box-shadow: 0 -3px 10px black;
 }
 
 .hourglass[data-place="1"] .hourglass-body .sand {
+    animation-name: move-sand-u;
+}
+
+.hourglass[data-place="1"] .hourglass-body .top .sand {
+    animation-name: move-sand-d;
+}
+
+.hourglass[data-place="2"] .hourglass-body .sand {
+    animation-name: move-sand-ru;
+}
+
+.hourglass[data-place="4"] .hourglass-body .sand {
+    animation-name: move-sand-d;
+}
+
+.hourglass[data-place="4"] .hourglass-body .top .sand {
     animation-name: move-sand-u;
 }
 
