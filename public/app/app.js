@@ -35,11 +35,15 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
 
     $scope.update = function () {
 
-        var calcMaxScore = function (houses) {
-            var max = 0;
+        var calcBestScore = function (houses) {
+            var best = 0;
             houses.forEach(function (house) {
-                max = Math.max(max, house.score);
+                best = Math.max(best, house.score);
             });
+            return best;
+        };
+
+        var calcMaxScore = function (houses, max) {
             var maxScore = 200;
             while (maxScore < max)
                 maxScore += 200;
@@ -47,10 +51,12 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
         };
 
         $http.get('/api/v1/houses').then(function(response) {
-            $scope.maxScore = calcMaxScore(response.data);
-            response.data.forEach(function (house) {
-                $scope.houses[house.name] = house;
+            var bestScore = calcBestScore(response.data);
+            $scope.maxScore = calcMaxScore(response.data, bestScore);
+            response.data.forEach(function (house, index) {
+                house.place = index + 1;
                 $('.hourglass[data-house="' + house.name + '"] .hourglass-body .middle .sand').css('height', 100 * house.score / $scope.maxScore + '%');
+                $scope.houses[house.name] = house;
             });
         });
     };

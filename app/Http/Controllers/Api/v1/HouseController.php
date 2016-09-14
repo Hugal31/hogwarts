@@ -21,7 +21,7 @@ class HouseController extends Controller
     }
 
     public function houses() {
-        return response()->json(House::all());
+        return response()->json(House::orderBy('score', 'desc')->get());
     }
 
     protected function get_house($house) {

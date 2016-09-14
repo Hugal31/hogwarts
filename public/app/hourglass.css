@@ -96,18 +96,43 @@ body {
     background-size: 100%; /* TODO TRY COVER */
 }
 
+@keyframes move-sand-u {
+    0% {background-position: 0 0;}
+    50% {background-position: left 0 top -64px;}
+    100% {background-position: left 0 top -128px;}
+}
+
+@keyframes move-sand-d {
+    0% {background-position: 0 0;}
+    50% {background-position: left 0 top 64px;}
+    100% {background-position: left 0 top 128px;}
+}
+
+@keyframes move-sand-ld {
+    0% {background-position: 0 0;}
+    100% {background-position: left 128px top 128px;}
+}
+
 .hourglass .hourglass-body .middle .sand {
     position: absolute;
-    bottom: 0;
+    bottom: -50px;
 }
 
 .hourglass .hourglass-body .sand {
+    animation-name: move-sand-ld;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
     height: 0;
     width: 100%;
     transition: height 0.5s linear;
     background-position: bottom;
     -webkit-background-size: 100%;
     background-size: 100%;
+}
+
+.hourglass[data-place="1"] .hourglass-body .sand {
+    animation-name: move-sand-u;
 }
 
 .hourglass[data-house="slytherin"] .hourglass-body .sand {
@@ -124,6 +149,12 @@ body {
 
 .hourglass[data-house="hufflepuff"] .hourglass-body .sand {
     background-image: url('/img/sand_huf.png');
+}
+
+.hourglass .hourglass-body .glass {
+    background: url('/img/glass.png') repeat-y;
+    height: 100%;
+    width: 100%;
 }
 
 .hourglass .hourglass-body .bottom {

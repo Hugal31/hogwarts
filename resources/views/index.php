@@ -15,16 +15,21 @@
   </head>
   <body ng-controller="HourglassController">
     <div id="main-wrapper">
-      <div class="hourglass" ng-repeat="house in ['slytherin', 'ravenclaw', 'gryffindor', 'hufflepuff']" data-house="{{house}}">
+      <div class="hourglass" ng-repeat="house in ['slytherin', 'ravenclaw', 'gryffindor', 'hufflepuff']"
+           data-house="{{house}}" data-place="{{houses[house].place}}">
         <div class="container">
           <div class="hourglass-body">
             <div class="top">
               <!--div class="score">{{houses[house].score}}</div-->
             </div>
             <div class="middle">
-              <div class="sand"></div>
+              <div class="sand">
+                <div class="glass"></div>
+              </div>
             </div>
-            <div class="bottom sand"></div>
+            <!--div class="bottom sand">
+              <div class="glass"></div>
+            </div-->
           </div>
           <div class="house-crest"><img src="/img/shield_{{house|shortHouse}}.png" alt=""></div>
         </div>
