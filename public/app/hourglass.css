@@ -87,21 +87,6 @@ body {
     background-image: url('/img/hourglass_top.png'), url('/img/sand_huf_top.png');
 }
 
-/*
-.hourglass .hourglass-body .top .sand {
-    mask-image: url(https://mdn.mozillademos.org/files/12676/star.svg);
-    height: 100%;
-    width: 100%;
-    z-index: 5;
-}
-*/
-/*.hourglass .hourglass-body .middle-top {
-    background: url('/img/glass.png') bottom center repeat-y;
-    -webkit-background-size: 100%;
-    background-size: 100%;
-    height: 10%;
-}*/
-
 .hourglass .hourglass-body .middle {
     flex: 1;
     position: relative;
