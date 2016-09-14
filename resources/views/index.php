@@ -17,16 +17,16 @@
     <div id="main-wrapper">
       <div class="hourglass" ng-repeat="house in ['slytherin', 'ravenclaw', 'gryffindor', 'hufflepuff']" data-house="{{house}}">
         <div class="container">
-          <div class="house-name capitalize">{{house | translate}}</div>
           <div class="hourglass-body">
-            <div class="top"></div>
+            <div class="top">
+              <!--div class="score">{{houses[house].score}}</div-->
+            </div>
             <div class="middle">
               <div class="sand"></div>
             </div>
             <div class="bottom sand"></div>
           </div>
           <div class="house-crest"><img src="/img/shield_{{house|shortHouse}}.png" alt=""></div>
-          <div class="score">{{houses[house].score}} points</div>
         </div>
       </div>
     </div>
