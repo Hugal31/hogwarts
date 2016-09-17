@@ -12,7 +12,8 @@ class UserSeeder extends Seeder
             'name' => 'laloge_h',
             'email' => 'hugo.laloge@epitech.eu',
             'password' => Hash::make('Alohomora'),
-            'api_token' => str_random(32)
+            'api_token' => str_random(32),
+            'admin' => true
         ]);
     }
 }
