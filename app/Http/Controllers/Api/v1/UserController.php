@@ -19,6 +19,12 @@ class UserController extends Controller
         //
     }
 
+    public function getUser(Request $request)
+    {
+        $user = User::where('api_token', $request->input('key'))->first();
+        return response()->json($user);
+    }
+
     public function getUsers()
     {
         return response()->json(User::all());

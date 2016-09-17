@@ -50,10 +50,16 @@ $app->group([
         'middleware' => 'apiAuth'
     ]);
 
+    $app->get('user', [
+        'as' => 'api.v1.user',
+        'uses' => 'UserController@getUser',
+        'middleware' => 'apiAuth'
+    ]);
+
     $app->get('users', [
         'as' => 'api.v1.users',
         'uses' => 'UserController@getUsers',
-        'middleware' => 'apiAuth'
+        'middleware' => 'apiAdmin'
     ]);
 
     $app->post('users', [
