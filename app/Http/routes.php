@@ -49,4 +49,16 @@ $app->group([
         'uses' => 'OperationController@getAccesses',
         'middleware' => 'apiAuth'
     ]);
+
+    $app->get('users', [
+        'as' => 'api.v1.users',
+        'uses' => 'UserController@getUsers',
+        'middleware' => 'apiAuth'
+    ]);
+
+    $app->post('users', [
+        'as' => 'api.v1.postUser',
+        'uses' => 'UserController@postUser',
+        'middleware' => 'apiAdmin'
+    ]);
 });

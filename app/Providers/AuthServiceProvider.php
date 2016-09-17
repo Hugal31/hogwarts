@@ -34,6 +34,11 @@ class AuthServiceProvider extends ServiceProvider
             if ($request->input('key')) {
                 return User::where('api_token', $request->input('key'))->first();
             }
+            return null;
+        });
+
+        Gate::define('create_user', function ($user) {
+            return $user->admin;
         });
     }
 }

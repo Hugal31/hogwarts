@@ -30,6 +30,7 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
     $translate.use('fr'); // TODO Change
 
     $scope.interval = 30000;
+    $scope.scoreStep = 1000;
     $scope.maxScore = 200;
     $scope.houses = [];
 
@@ -44,9 +45,9 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
         };
 
         var calcMaxScore = function (houses, max) {
-            var maxScore = 200;
+            var maxScore = $scope.scoreStep;
             while (maxScore < max)
-                maxScore += 200;
+                maxScore += $scope.scoreStep;
             return maxScore;
         };
 
@@ -55,7 +56,7 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
             $scope.maxScore = calcMaxScore(response.data, bestScore);
             response.data.forEach(function (house, index) {
                 house.place = index + 1;
-                $('.hourglass[data-house="' + house.name + '"] .hourglass-body .middle .sand').css('height', 100 * house.score / $scope.maxScore + '%');
+                $('.hourglass[data-house="' + house.name + '"] .hourglass-body .middle .sand').css('height', 'calc(50px + ' + 100 * house.score / $scope.maxScore + '%)');
                 $scope.houses[house.name] = house;
             });
         });
