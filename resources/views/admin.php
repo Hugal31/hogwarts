@@ -64,11 +64,15 @@
             <label for="inputUserEmail">Email</label>
             <input type="email" id="inputUserEmail" ng-model="createUserData.email">
             <label for="inputIsAdmin">Is superadmin</label>
-            <input type="checkbox" id="inputIsAdmin" ng-model="createUserData.admin" required>
+            <input type="checkbox" id="inputIsAdmin" ng-model="createUserData.admin">
             <label for="inputUserPassword">Password</label>
-            <input type="password" id="inputUserPassword" ng-model="createUserData.password">
+            <input type="password" id="inputUserPassword" ng-model="createUserData.password" required>
             <input type="submit">
           </form>
+
+          <div ng-if="createUserData.error" class="error">
+            {{createUserData.error}}
+          </div>
         </div>
 
         <div id="operations">
