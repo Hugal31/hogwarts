@@ -35,13 +35,19 @@ class UserController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'email|required|unique:user',
-            'password' => 'required'
+            'password' => 'required',
+            'admin' => 'boolean'
         ]);
 
         $user = new User();
         $user->name = $request->get('name');
         $user->email = $request->get('email');
         $user->password = Hash::make($request->get('password'));
+        $user->admin = $request->get('admin');
+        $token = str_random(32);
+        while (User::where('api_token', '=', $token)->count() != 0)
+            $token = str_random(32);
+        $user->api_token = $token;
         $user->save();
 
         return response()->json($user);

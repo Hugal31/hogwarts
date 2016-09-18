@@ -72,6 +72,39 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
 
     $translate.use('fr'); // TODO Change
 
+    $scope.operations = [];
+
+    $scope.loginData = {
+        email: '',
+        password: ''
+    };
+
+    $scope.user = {
+        name: undefined,
+        email: undefined,
+        admin: false
+    };
+
+    $scope.houseOperationData = {
+        house: "slytherin",
+        action: "add",
+        amount: undefined,
+        reason: ''
+    };
+
+    $scope.createUserData = {
+        name: '',
+        email: '',
+        password: '',
+        admin: false
+    };
+
+    $scope.getUser = function () {
+        $http.get('/api/v1/user?key=' + $scope.token).then(function (response) {
+            $scope.user = response.data;
+        });
+    };
+
     $scope.login = function (email, password) {
         $http.post('/api/v1/auth', {
             email: email,
@@ -81,6 +114,7 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
             $scope.hasToken = true;
             $scope.token = response.data.key;
             $cookies.put('api_token', $scope.token);
+            $scope.getUser();
             $scope.updateOperations();
         }, function () {
             $scope.invalidLogin = true;
@@ -96,7 +130,6 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
     $scope.updateOperations = function () {
         $http.get('/api/v1/operations?key=' + $scope.token).then(function (response) {
             $scope.operations = response.data;
-            console.log(response.data);
         });
     };
 
@@ -121,25 +154,37 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
         $scope.houseOperationData.reason = null;
     };
 
+    $scope.createUser = function (name, email, password, admin) {
+        $http.post('/api/v1/users', {
+            name: name,
+            email: email,
+            password: password,
+            admin: admin,
+            key: $scope.token
+        }).then(function (response) {
+
+        }, function (response) {
+            console.log(response)
+        });
+    };
+
+    $scope.submitCreateUserForm = function () {
+        $scope.createUser($scope.createUserData.name,
+            $scope.createUserData.email,
+            $scope.createUserData.password,
+            $scope.createUserData.admin
+        );
+        $scope.createUserData.name = '';
+        $scope.createUserData.email = '';
+        $scope.createUserData.password = '';
+        $scope.createUserData.admin = false;
+    };
+
     $scope.token = $cookies.get('api_token');
     $scope.hasToken = Boolean($scope.token);
     if ($scope.hasToken) {
         $scope.invalidLogin = false;
+        $scope.getUser();
         $scope.updateOperations();
     }
-
-    $scope.operations = [];
-
-    $scope.loginData = {
-        email: '',
-        password: ''
-    };
-
-    $scope.houseOperationData = {
-        house: "slytherin",
-        action: "add",
-        amount: undefined,
-        reason: ''
-    }
-
 });

@@ -31,7 +31,7 @@
 
       <div ng-switch-when="true">
 
-        <div id="admin">
+        <div id="houseOperation">
           <form name="houseOperationForm" ng-submit="submitHouseOperationForm()" class="capitalize">
             <label for="houseSelect">
               {{'house'|translate}}:
@@ -53,7 +53,21 @@
             <input type="number" name="amount" min="0" id="amountInput" ng-model="houseOperationData.amount" required/>
             <label for="reasonInput">{{'reason'|translate}}</label>
             <textarea name="reason" id="reasonInput" cols="30" rows="10" ng-model="houseOperationData.reason"></textarea>
-            <input type="submit" value="Submit">
+            <input type="submit">
+          </form>
+        </div>
+
+        <div id="create_user" ng-if="user.admin">
+          <form name="createUserForm" class="capitalize" ng-submit="submitCreateUserForm()">
+            <label for="inputUserName">User name</label>
+            <input type="text" id="inputUserName" ng-model="createUserData.name" required>
+            <label for="inputUserEmail">Email</label>
+            <input type="email" id="inputUserEmail" ng-model="createUserData.email">
+            <label for="inputIsAdmin">Is superadmin</label>
+            <input type="checkbox" id="inputIsAdmin" ng-model="createUserData.admin" required>
+            <label for="inputUserPassword">Password</label>
+            <input type="password" id="inputUserPassword" ng-model="createUserData.password">
+            <input type="submit">
           </form>
         </div>
 
