@@ -65,6 +65,7 @@ body {
 .hourglass .hourglass-body .top {
     height: 140px;
     width: 100%;
+    position: relative;
 }
 
 .hourglass .hourglass-body .top .sand {
@@ -137,10 +138,6 @@ body {
 }
 
 .hourglass[data-place="1"] .hourglass-body .sand {
-    animation-name: move-sand-u;
-}
-
-.hourglass[data-place="1"] .hourglass-body .top .sand {
     animation-name: move-sand-d;
 }
 
@@ -149,10 +146,6 @@ body {
 }
 
 .hourglass[data-place="4"] .hourglass-body .sand {
-    animation-name: move-sand-d;
-}
-
-.hourglass[data-place="4"] .hourglass-body .top .sand {
     animation-name: move-sand-u;
 }
 
@@ -196,6 +189,8 @@ body {
 }
 
 .hourglass .score {
+    position: relative;
+    top: 0.15em;
     color: white;
-    font-size: 2.5em;
+    font-size: 3em;
 }

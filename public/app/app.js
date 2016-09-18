@@ -31,8 +31,21 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
 
     $scope.interval = 30000;
     $scope.scoreStep = 1000;
-    $scope.maxScore = 200;
-    $scope.houses = [];
+    $scope.maxScore = 1000;
+    $scope.houses = {
+        slytherin: {
+            score: 0
+        },
+        ravenclaw: {
+            score: 0
+        },
+        gryffindor: {
+            score: 0
+        },
+        hufflepuff: {
+            score: 0
+        }
+    };
 
     $scope.update = function () {
 
@@ -56,7 +69,6 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
             $scope.maxScore = calcMaxScore(response.data, bestScore);
             response.data.forEach(function (house, index) {
                 house.place = index + 1;
-                $('.hourglass[data-house="' + house.name + '"] .hourglass-body .middle .sand').css('height', 'calc(50px + ' + 100 * house.score / $scope.maxScore + '%)');
                 $scope.houses[house.name] = house;
             });
         });

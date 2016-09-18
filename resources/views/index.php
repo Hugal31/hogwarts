@@ -9,8 +9,8 @@
             integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="/app/components/angular.min.js"></script>
-    <script type="text/javascript" src="/app/components/angular-cookies.min.js""></script>
-    <script type="text/javascript" src="/app/components/angular-translate.min.js""></script>
+    <script type="text/javascript" src="/app/components/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="/app/components/angular-translate.min.js"></script>
     <script type="text/javascript" src="/app/app.js"></script>
   </head>
   <body ng-controller="HourglassController">
@@ -21,11 +21,12 @@
           <div class="hourglass-body">
             <div class="top">
               <div class="sand"></div>
-              <div class="hourglass-top"></div>
-              <!--div class="score">{{houses[house].score}}</div-->
+              <div class="hourglass-top">
+                <div class="score">{{houses[house].score}}</div>
+              </div>
             </div>
             <div class="middle">
-              <div class="sand">
+              <div class="sand" style="height:calc(50px + 100% * {{houses[house].score / maxScore}});">
                 <div class="glass"></div>
               </div>
             </div>
