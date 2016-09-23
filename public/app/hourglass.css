@@ -3,6 +3,7 @@ html {
 }
 
 body {
+    overflow: hidden;
     position: relative;
     font-family: magic-school, serif;
     height: 100%;
