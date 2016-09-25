@@ -124,6 +124,26 @@
             </tbody>
           </table>
         </div>
+
+        <div id="change_password">
+          <h3>Change password</h3>
+          <form name="changePasswordForm" class="capitalize" ng-submit="submitChangePasswordForm()">
+            <div>
+              <label for="inputUserPassword">Password</label>
+              <input type="password" id="inputUserPassword" ng-model="changePasswordData.password" required autocomplete="off">
+            </div>
+            <div>
+              <label for="inputUserPasswordConfirm">Confirm password</label>
+              <input type="password" id="inputUserPasswordConfirm" ng-model="changePasswordData.confirm_password" required autocomplete="off">
+            </div>
+            <input type="submit">
+          </form>
+
+          <div class="error">
+            <p ng-repeat="error in changePasswordData.errors">{{error}}</p>
+          </div>
+        </div>
+
         <button ng-click="logout()">Log out</button>
       </div>
     </div>

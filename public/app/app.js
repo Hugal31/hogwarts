@@ -112,6 +112,12 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
         errors: {}
     };
 
+    $scope.changePasswordData = {
+        password: '',
+        confirm_password: '',
+        errors: {}
+    };
+
     $scope.getUser = function () {
         $http.get('/api/v1/user?key=' + $scope.token).then(function (response) {
             $scope.user = response.data;
@@ -190,6 +196,30 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
         $scope.createUserData.email = '';
         $scope.createUserData.password = '';
         $scope.createUserData.admin = false;
+    };
+
+    $scope.changePassword = function (password) {
+        $http.put('/api/v1/user', {
+            password: password,
+            key: $scope.token
+        }).then(function () {}, function (response) {
+            $scope.changePasswordData.errors = response.data[Object.keys(response.data)[0]][0];
+        });
+    };
+
+    $scope.submitChangePasswordForm = function () {
+        $scope.changePasswordData.errors = {};
+        if ($scope.changePasswordData.password == '') {
+            $scope.changePasswordData.errors.confirm = 'Passwords cannot be empty';
+            return
+        }
+        else if ($scope.changePasswordData.password != $scope.changePasswordData.confirm_password) {
+            $scope.changePasswordData.errors.confirm = 'Passwords are differents';
+            return
+        }
+        $scope.changePassword($scope.changePasswordData.password);
+        $scope.changePasswordData.password = '';
+        $scope.changePasswordData.confirm_password = '';
     };
 
     $scope.token = $cookies.get('api_token');

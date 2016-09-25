@@ -30,6 +30,20 @@ class UserController extends Controller
         return response()->json(User::all());
     }
 
+    // Mainly for change password
+    public function putUser(Request $request)
+    {
+        $this->validate($request, [
+            'password' => 'required',
+        ]);
+
+        $user = User::where('api_token', $request->input('key'))->firstOrFail();
+        $user->password = Hash::make($request->get('password'));
+        $user->save();
+
+        return response()->json($user);
+    }
+
     public function postUser(Request $request)
     {
         $this->validate($request, [
