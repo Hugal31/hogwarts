@@ -8,10 +8,14 @@ class UserSeeder extends Seeder
 {
     public function run()
     {
+        $password = env('ADMIN_PASSWORD');
+        if (is_null($password)) {
+            throw new InvalidArgumentException("Please fill the ADMIN_PASSWORD env variable");
+        }
         User::create([
-            'name' => 'laloge_h',
-            'email' => 'hugo.laloge@epitech.eu',
-            'password' => Hash::make('Alohomora'),
+            'name' => 'admin',
+            'email' => 'admin@epitech.eu',
+            'password' => Hash::make($password),
             'api_token' => str_random(32),
             'admin' => true
         ]);
