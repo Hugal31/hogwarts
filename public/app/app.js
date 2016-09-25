@@ -109,7 +109,7 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
         email: '',
         password: '',
         admin: false,
-        error: ''
+        errors: {}
     };
 
     $scope.getUser = function () {
@@ -175,7 +175,7 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
             admin: admin,
             key: $scope.token
         }).then(function () {}, function (response) {
-            $scope.createUserData.error = response.data[Object.keys(response.data)[0]][0];
+            $scope.createUserData.errors = response.data[Object.keys(response.data)[0]][0];
         });
     };
 

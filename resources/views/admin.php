@@ -31,51 +31,73 @@
 
       <div ng-switch-when="true">
 
-        <div id="houseOperation">
-          <form name="houseOperationForm" ng-submit="submitHouseOperationForm()" class="capitalize">
-            <label for="houseSelect">
-              {{'house'|translate}}:
-              <img src="/img/shield_{{houseOperationData.house | shortHouse}}.png" alt="House's shield" class="small">
-            </label>
-            <select name="house" id="houseSelect" ng-model="houseOperationData.house">
-              <option value="slytherin">{{'slytherin' | translate}}</option>
-              <option value="ravenclaw">{{'ravenclaw' | translate}}</option>
-              <option value="gryffindor">{{'gryffindor' | translate}}</option>
-              <option value="hufflepuff">{{'hufflepuff' | translate}}</option>
-            </select>
-            <label for="actionSelect">{{'operation'|translate}}:</label>
-            <select name="action" id="actionSelect" ng-model="houseOperationData.action">
-              <option value="add">{{'add'|translate}}</option>
-              <option value="remove">{{'remove'|translate}}</option>
-              <option value="set">{{'set'|translate}}</option>
-            </select>
-            <label for="amountInput">{{'amount'|translate}}:</label>
-            <input type="number" name="amount" min="0" id="amountInput" ng-model="houseOperationData.amount" required/>
-            <label for="reasonInput">{{'reason'|translate}}</label>
-            <textarea name="reason" id="reasonInput" cols="30" rows="10" ng-model="houseOperationData.reason"></textarea>
-            <input type="submit">
-          </form>
-        </div>
+        <div id="adminOperations">
+          <h2>Admin panel</h2>
+          <div id="houseOperation">
+            <h3>Change points</h3>
+            <form name="houseOperationForm" ng-submit="submitHouseOperationForm()" class="capitalize">
+              <div>
+                <label for="houseSelect">
+                  {{'house'|translate}}:
+                  <img src="/img/shield_{{houseOperationData.house | shortHouse}}.png" alt="House's shield" class="small">
+                </label>
+                <select name="house" id="houseSelect" ng-model="houseOperationData.house">
+                  <option value="slytherin">{{'slytherin' | translate}}</option>
+                  <option value="ravenclaw">{{'ravenclaw' | translate}}</option>
+                  <option value="gryffindor">{{'gryffindor' | translate}}</option>
+                  <option value="hufflepuff">{{'hufflepuff' | translate}}</option>
+                </select>
+              </div>
+              <div>
+                <label for="actionSelect">{{'operation'|translate}}:</label>
+                <select name="action" id="actionSelect" ng-model="houseOperationData.action">
+                  <option value="add">{{'add'|translate}}</option>
+                  <option value="remove">{{'remove'|translate}}</option>
+                  <option value="set">{{'set'|translate}}</option>
+                </select>
+              </div>
+              <div>
+                <label for="amountInput">{{'amount'|translate}}:</label>
+                <input type="number" name="amount" min="0" id="amountInput" ng-model="houseOperationData.amount" required/>
+              </div>
+              <div>
+                <label for="reasonInput">{{'reason'|translate}}</label>
+                <textarea name="reason" id="reasonInput" cols="30" rows="10" ng-model="houseOperationData.reason"></textarea>
+              </div>
+              <input type="submit">
+            </form>
+          </div>
 
-        <div id="create_user" ng-if="user.admin">
-          <form name="createUserForm" class="capitalize" ng-submit="submitCreateUserForm()">
-            <label for="inputUserName">User name</label>
-            <input type="text" id="inputUserName" ng-model="createUserData.name" required>
-            <label for="inputUserEmail">Email</label>
-            <input type="email" id="inputUserEmail" ng-model="createUserData.email">
-            <label for="inputIsAdmin">Is superadmin</label>
-            <input type="checkbox" id="inputIsAdmin" ng-model="createUserData.admin">
-            <label for="inputUserPassword">Password</label>
-            <input type="password" id="inputUserPassword" ng-model="createUserData.password" required>
-            <input type="submit">
-          </form>
+          <div id="create_user" ng-if="user.admin">
+            <h3>Create user</h3>
+            <form name="createUserForm" class="capitalize" ng-submit="submitCreateUserForm()">
+              <div>
+                <label for="inputUserName">User name</label>
+                <input type="text" id="inputUserName" ng-model="createUserData.name" required>
+              </div>
+              <div>
+                <label for="inputUserEmail">Email</label>
+                <input type="email" id="inputUserEmail" ng-model="createUserData.email" required autocomplete="off">
+              </div>
+              <div>
+                <label for="inputIsAdmin">Is superadmin</label>
+                <input type="checkbox" id="inputIsAdmin" ng-model="createUserData.admin">
+              </div>
+              <div>
+                <label for="inputUserPassword">Password</label>
+                <input type="password" id="inputUserPassword" ng-model="createUserData.password" required autocomplete="off">
+              </div>
+              <input type="submit">
+            </form>
 
-          <div ng-if="createUserData.error" class="error">
-            {{createUserData.error}}
+            <div class="error">
+              <p ng-repeat="error in createUserData.errors">{{error}}</p>
+            </div>
           </div>
         </div>
 
         <div id="operations">
+          <h2>Operations</h2>
           <table border="1" cellpadding="8" class="operations">
             <thead class="capitalize">
               <tr>
