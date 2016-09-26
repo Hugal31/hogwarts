@@ -78,6 +78,7 @@ body {
     -webkit-mask-image: url(/img/hourglass_mask.svg);
     mask-image: url(/img/hourglass_mask.svg);
     z-index: 5;
+    animation-name: move-sand-d;
 }
 
 .hourglass .hourglass-body .top .hourglass-top {
