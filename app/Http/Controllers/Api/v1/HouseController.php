@@ -62,7 +62,6 @@ class HouseController extends Controller
                     break;
 
                 case "remove":
-                    $amount = min($amount, $house->score);
                     $house->score -= $amount;
                     break;
 
