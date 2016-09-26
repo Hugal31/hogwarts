@@ -9,8 +9,9 @@
             integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="/app/components/angular.min.js"></script>
-    <script type="text/javascript" src="/app/components/angular-cookies.min.js""></script>
-    <script type="text/javascript" src="/app/components/angular-translate.min.js""></script>
+    <script type="text/javascript" src="/app/components/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="/app/components/angular-translate.min.js"></script>
+    <script type="text/javascript" src="/app/config.js"></script>
     <script type="text/javascript" src="/app/app.js"></script>
   </head>
   <body ng-controller="AdminController">

@@ -20,10 +20,7 @@ $app->get('/admin', function () use ($app) {
 });
 
 $app->get('/app/config.js', function () {
-    if (env('API_HOST'))
-        return 'api_host="http://' . env('API_HOST', '') . '"';
-    else
-        return 'api_host=""';
+    return 'api_host="' . env('API_HOST', '') . '"';
 });
 
 $app->group([
