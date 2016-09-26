@@ -27,13 +27,10 @@
               </div>
             </div>
             <div class="middle">
-              <div class="sand" style="height:calc(50px + 100% * {{houses[house].score / maxScore}});">
+              <div class="sand" style="max-height:100%;height:calc(50px + 100% * {{houses[house].score / maxScore}});">
                 <div class="glass"></div>
               </div>
             </div>
-            <!--div class="bottom sand">
-              <div class="glass"></div>
-            </div-->
           </div>
           <div class="house-crest"><img src="/img/shield_{{house|shortHouse}}.png" alt=""></div>
         </div>
