@@ -53,6 +53,15 @@ class HouseController extends Controller
         if (is_null($house))
             return response()->json(['error' => 'House not found'], 404);
 
+        if ($amount < 0 and $action != 'set')
+        {
+            if ($action == 'add')
+                $action = 'remove';
+            elseif ($action == 'remove')
+                $action = 'add';
+            $amount = -$amount;
+        }
+
         // Skip operation if it is add or remove 0
         if ($action == 'set' or $amount != 0) {
 
