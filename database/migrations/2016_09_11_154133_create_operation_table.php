@@ -17,7 +17,7 @@ class CreateOperationTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('house_id')->unsigned();
-            $table->integer('amount')->unsigned();
+            $table->integer('amount');
             $table->enum('action', ['add', 'remove', 'set']);
             $table->timestamps();
 

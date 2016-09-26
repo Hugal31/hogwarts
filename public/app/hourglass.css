@@ -137,6 +137,7 @@ body {
     -webkit-background-size: 100%;
     background-size: 100%;
     box-shadow: 0 -3px 10px black;
+    min-height: 50px;
 }
 /*
 .hourglass[data-place="1"] .hourglass-body .sand {

@@ -58,7 +58,7 @@
               </div>
               <div>
                 <label for="amountInput">{{'amount'|translate}}:</label>
-                <input type="number" name="amount" min="0" id="amountInput" ng-model="houseOperationData.amount" required/>
+                <input type="number" name="amount" id="amountInput" ng-model="houseOperationData.amount" required/>
               </div>
               <div>
                 <label for="reasonInput">{{'reason'|translate}}</label>

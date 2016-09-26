@@ -43,7 +43,7 @@ class HouseController extends Controller
 
         $this->validate($request, [
             'action' => 'in:add,remove,set|required',
-            'amount' => 'numeric|required|min:0',
+            'amount' => 'numeric|required',
         ]);
 
         $action = $request->input('action');
