@@ -20,7 +20,11 @@ $app->get('/admin', function () use ($app) {
 });
 
 $app->get('/app/config.js', function () {
-    return 'api_host="' . env('API_HOST', '') . '"';
+    return 'api_host="' . env('API_HOST', '') . '";';
+});
+
+$app->get('/api/v1/version', function () {
+    system('git rev-parse HEAD');
 });
 
 $app->group([

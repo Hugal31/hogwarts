@@ -29,6 +29,8 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
 
     $translate.use('fr'); // TODO Change
 
+    $scope.version = null;
+    $scope.autoRefresh = true;
     $scope.interval = 30000;
     $scope.scoreStep = 1000;
     $scope.maxScore = 1000;
@@ -74,10 +76,23 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
         });
     };
 
+    $scope.refresh = function () {
+        $http.get(api_host + '/api/v1/version').then(function (response) {
+            if ($scope.version == null) {
+                $scope.version = response.data;
+            } else if ($scope.version != response.data) {
+                document.location = '.';
+            }
+        });
+    };
+
     $scope.update();
 
     // Refresh scores
     $interval($scope.update, $scope.interval);
+
+    if ($scope.autoRefresh)
+        $interval($scope.refresh, 300000);
 });
 
 hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $translate) {
