@@ -64,7 +64,7 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
             return maxScore;
         };
 
-        $http.get('/api/v1/houses').then(function(response) {
+        $http.get(api_host + '/api/v1/houses').then(function(response) {
             var bestScore = calcBestScore(response.data);
             $scope.maxScore = calcMaxScore(response.data, bestScore);
             response.data.forEach(function (house, index) {
@@ -119,13 +119,13 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
     };
 
     $scope.getUser = function () {
-        $http.get('/api/v1/user?key=' + $scope.token).then(function (response) {
+        $http.get(api_host + '/api/v1/user?key=' + $scope.token).then(function (response) {
             $scope.user = response.data;
         });
     };
 
     $scope.login = function (email, password) {
-        $http.post('/api/v1/auth', {
+        $http.post(api_host + '/api/v1/auth', {
             email: email,
             password: password
         }).then(function (response) {
@@ -147,13 +147,13 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
     };
 
     $scope.updateOperations = function () {
-        $http.get('/api/v1/operations?key=' + $scope.token).then(function (response) {
+        $http.get(api_host + '/api/v1/operations?key=' + $scope.token).then(function (response) {
             $scope.operations = response.data;
         });
     };
 
     $scope.houseOperation = function (house, action, amount, reason) {
-        $http.put('/api/v1/houses/' + house, {
+        $http.put(api_host + '/api/v1/houses/' + house, {
             action: action,
             amount: amount,
             key: $scope.token,
@@ -174,7 +174,7 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
     };
 
     $scope.createUser = function (name, email, password, admin) {
-        $http.post('/api/v1/users', {
+        $http.post(api_host + '/api/v1/users', {
             name: name,
             email: email,
             password: password,
@@ -199,7 +199,7 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
     };
 
     $scope.changePassword = function (password) {
-        $http.put('/api/v1/user', {
+        $http.put(api_host + '/api/v1/user', {
             password: password,
             key: $scope.token
         }).then(function () {}, function (response) {

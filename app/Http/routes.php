@@ -19,6 +19,13 @@ $app->get('/admin', function () use ($app) {
     return view('admin');
 });
 
+$app->get('/app/config.js', function () {
+    if (env('API_HOST'))
+        return 'api_host="http://' . env('API_HOST', '') . '"';
+    else
+        return 'api_host=""';
+});
+
 $app->group([
     'prefix' => 'api/v1/',
     'namespace' => 'App\Http\Controllers\Api\v1'], function () use ($app) {

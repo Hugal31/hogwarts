@@ -11,6 +11,7 @@
     <script type="text/javascript" src="/app/components/angular.min.js"></script>
     <script type="text/javascript" src="/app/components/angular-cookies.min.js"></script>
     <script type="text/javascript" src="/app/components/angular-translate.min.js"></script>
+    <script type="text/javascript" src="/app/config.js"></script>
     <script type="text/javascript" src="/app/app.js"></script>
   </head>
   <body ng-controller="HourglassController">
