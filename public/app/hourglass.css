@@ -126,7 +126,7 @@ body {
 }
 
 .hourglass .hourglass-body .sand {
-    animation-name: move-sand-ld;
+    animation-name: move-sand-u;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-duration: 10s;
@@ -137,7 +137,7 @@ body {
     background-size: 100%;
     box-shadow: 0 -3px 10px black;
 }
-
+/*
 .hourglass[data-place="1"] .hourglass-body .sand {
     animation-name: move-sand-u;
 }
@@ -149,7 +149,7 @@ body {
 .hourglass[data-place="4"] .hourglass-body .sand {
     animation-name: move-sand-d;
 }
-
+*/
 .hourglass[data-house="slytherin"] .hourglass-body .sand {
     background-image: url('/img/sand_sly.png');
 }
