@@ -6,6 +6,18 @@ hogwartsApp
         return function (house) {
             return house.substr(0, 3);
         };
+    })
+    .filter('to_op', function () {
+        return function (operation) {
+            switch (operation) {
+                case 'add':
+                    return '+';
+                case 'remove':
+                    return '-';
+                case 'set':
+                    return '=';
+            }
+        }
     });
 
 hogwartsApp.config(function ($translateProvider) {

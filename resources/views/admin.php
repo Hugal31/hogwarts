@@ -105,7 +105,6 @@
                 <td>{{'user'|translate}}</td>
                 <td>{{'house'|translate}}</td>
                 <td>{{'operation'|translate}}</td>
-                <td>{{'amount'|translate}}</td>
                 <td>{{'date'|translate}}</td>
                 <td>{{'reason'|translate}}</td>
               </tr>
@@ -117,8 +116,7 @@
                   <img src="/img/shield_{{operation.house.name | shortHouse}}.png" alt="House's shield" class="small"/>
                   <span class="valign-shield">{{operation.house.name | translate}}</span>
                 </td>
-                <td>{{operation.action | translate}}</td>
-                <td>{{operation.amount}}</td>
+                <td>{{operation.action | to_op}} {{operation.amount}}</td>
                 <td>{{operation.updated_at}}</td>
                 <td>{{operation.reason}}</td>
               </tr>
