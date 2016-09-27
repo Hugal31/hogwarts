@@ -191,7 +191,7 @@ body {
 
 .hourglass .house-crest img {
     position: absolute;
-    left:0;
+    left:-3px;
     top:-50px;
     height: 100%;
     z-index: 10;
