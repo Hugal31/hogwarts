@@ -81,7 +81,7 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
             if ($scope.version == null) {
                 $scope.version = response.data;
             } else if ($scope.version != response.data) {
-                document.location = '.';
+                location.reload(true);
             }
         });
     };
