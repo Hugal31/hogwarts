@@ -41,10 +41,11 @@
         <div id="announce-container">
           <div id="announce">
             <h2>Information WEI</h2>
+	    <p><b>Ramener le papier + 20€ avant ce soir</b></p>
             <p>Rendez-vous demain 7h30.</p>
             <p>Pensez à amener:</p>
             <ul>
-              <li>Un pic-nique pour le midi</li>
+              <li>Un pique-nique pour le midi</li>
               <li>Un maillot de bain</li>
               <li>Un sac de couchage / tapis de sol / tente si vous avez</li>
               <li>Des vêtements salissables</li>
