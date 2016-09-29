@@ -50,16 +50,9 @@
                 </select>
               </div>
               <div>
-                <label for="actionSelect">{{'operation'|translate}}:</label>
-                <select name="action" id="actionSelect" ng-model="houseOperationData.action">
-                  <option value="add">{{'add'|translate}}</option>
-                  <option value="remove">{{'remove'|translate}}</option>
-                  <option value="set">{{'set'|translate}}</option>
-                </select>
-              </div>
-              <div>
                 <label for="amountInput">{{'amount'|translate}}:</label>
                 <input type="number" name="amount" id="amountInput" ng-model="houseOperationData.amount" required/>
+                <p style="text-transform: none;: none">Note : Entrez "10" pour ajouter 10 points, ou entrez "-10" pour retirer 10 points</p>
               </div>
               <div>
                 <label for="reasonInput">{{'reason'|translate}}</label>

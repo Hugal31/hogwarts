@@ -42,11 +42,11 @@ class HouseController extends Controller
     public function putHouse(Request $request, $house) {
 
         $this->validate($request, [
-            'action' => 'in:add,remove,set|required',
+            'action' => 'in:add,remove,set',
             'amount' => 'numeric|required',
         ]);
 
-        $action = $request->input('action');
+        $action = $request->input('action', 'add');
         $amount = (int)$request->input('amount');
         $house = $this->get_house($house);
 
