@@ -45,7 +45,8 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
     $scope.autoRefresh = true;
     $scope.interval = 30000;
     $scope.scoreStep = 1000;
-    $scope.maxScore = 1000;
+    $scope.minScore = 0;
+    $scope.maxScore = $scope.minScore + $scope.scoreStep;
     $scope.houses = {
         slytherin: {
             score: 0
@@ -78,9 +79,25 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
             return maxScore;
         };
 
+        var calcMinScore = function (houses, best, worst) {
+            if (worst < 1000)
+                return 0;
+            return worst - (best - worst);
+        };
+
+        var calcWorstScore = function (houses, best) {
+            var worst = best;
+            houses.forEach(function (house) {
+                worst = Math.min(worst, house.score);
+            });
+            return worst;
+        };
+
         $http.get(api_host + '/api/v1/houses').then(function(response) {
             var bestScore = calcBestScore(response.data);
+            var worstScore = calcWorstScore(response.data, bestScore);
             $scope.maxScore = calcMaxScore(response.data, bestScore);
+            $scope.minScore = calcMinScore(response.data, bestScore, worstScore);
             response.data.forEach(function (house, index) {
                 house.place = index + 1;
                 $scope.houses[house.name] = house;
