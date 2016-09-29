@@ -203,11 +203,18 @@ body {
     padding: 0 10%;
 }
 
+@keyframes float {
+    from {top:5em;}
+    to {top:7em;}
+}
+
 #announce-container {
     color:white;
     position: relative;
     top:5em;
+    left:5em;
     flex:1;
+    animation: float 5s infinite alternate;
 }
 
 #announce {
