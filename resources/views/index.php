@@ -46,7 +46,7 @@
             <ul>
               <li>Un pic-nique pour le midi</li>
               <li>Un maillot de bain</li>
-              <li>Un sac de couchage / tapis de sol / tente</li>
+              <li>Un sac de couchage / tapis de sol / tente si vous avez</li>
               <li>Des vêtements salissables</li>
             </ul>
           </div>
