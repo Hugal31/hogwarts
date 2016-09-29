@@ -212,9 +212,9 @@ body {
     color:white;
     position: relative;
     top:5em;
-    left:5em;
+    left:3em;
     flex:1;
-    animation: float 5s infinite alternate;
+    animation: float 5s infinite alternate ease-in-out;
 }
 
 #announce {
