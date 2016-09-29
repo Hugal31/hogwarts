@@ -73,8 +73,8 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
 
         var calcMaxScore = function (houses, max) {
             var maxScore = $scope.scoreStep;
-            while (maxScore < max)
-                maxScore += $scope.scoreStep;
+            while (maxScore <= max)
+                maxScore *= 2;
             return maxScore;
         };
 
