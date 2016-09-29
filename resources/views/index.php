@@ -27,7 +27,7 @@
               </div>
             </div>
             <div class="middle">
-              <div class="sand" style="max-height:100%;height:calc(50px + 100% * {{houses[house].score / maxScore}});">
+              <div class="sand" style="max-height:100%;height:calc(50px + 100% * {{(houses[house].score - minScore) / (maxScore - minScore)}});">
                 <div class="glass"></div>
               </div>
             </div>
