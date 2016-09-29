@@ -16,23 +16,40 @@
   </head>
   <body ng-controller="HourglassController">
     <div id="main-wrapper">
-      <div class="hourglass" ng-repeat="house in ['slytherin', 'ravenclaw', 'gryffindor', 'hufflepuff']"
-           data-house="{{house}}" data-place="{{houses[house].place}}">
-        <div class="container">
-          <div class="hourglass-body">
-            <div class="top">
-              <div class="sand"></div>
-              <div class="hourglass-top">
-                <div class="score">{{houses[house].score}}</div>
+      <div id="main-container">
+        <div id="hourglasses-container">
+          <div class="hourglass" ng-repeat="house in ['slytherin', 'ravenclaw', 'gryffindor', 'hufflepuff']"
+               data-house="{{house}}" data-place="{{houses[house].place}}">
+            <div class="container">
+              <div class="hourglass-body">
+                <div class="top">
+                  <div class="sand"></div>
+                  <div class="hourglass-top">
+                    <div class="score">{{houses[house].score}}</div>
+                  </div>
+                </div>
+                <div class="middle">
+                  <div class="sand" style="max-height:100%;height:calc(50px + 100% * {{houses[house].score / maxScore}});">
+                    <div class="glass"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="middle">
-              <div class="sand" style="max-height:100%;height:calc(50px + 100% * {{houses[house].score / maxScore}});">
-                <div class="glass"></div>
-              </div>
+              <div class="house-crest"><img src="/img/shield_{{house|shortHouse}}.png" alt=""></div>
             </div>
           </div>
-          <div class="house-crest"><img src="/img/shield_{{house|shortHouse}}.png" alt=""></div>
+        </div>
+        <div id="announce-container">
+          <div id="announce">
+            <h2>Information WEI</h2>
+            <p>Rendez-vous demain 7h30.</p>
+            <p>Pensez à amener:</p>
+            <ul>
+              <li>Un pic-nique pour le midi</li>
+              <li>Un maillot de bain</li>
+              <li>Un sac de couchage / tapis de sol / tente</li>
+              <li>Des vêtements salissables</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
