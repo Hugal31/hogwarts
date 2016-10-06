@@ -128,6 +128,8 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
 
     $translate.use('fr'); // TODO Change
 
+    $scope.operationsLimit = 10;
+    $scope.operationsPage = 0;
     $scope.operations = [];
 
     $scope.loginData = {
@@ -191,9 +193,21 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
     };
 
     $scope.updateOperations = function () {
-        $http.get(api_host + '/api/v1/operations?key=' + $scope.token).then(function (response) {
+        $http.get(api_host + '/api/v1/operations?key=' + $scope.token + '&limit=' + $scope.operationsLimit + '&offset=' + $scope.operationsPage * $scope.operationsLimit)
+            .then(function (response) {
             $scope.operations = response.data;
         });
+    };
+
+    $scope.previousPage = function () {
+        if ($scope.operationsPage > 0)
+            $scope.operationsPage--;
+        $scope.updateOperations();
+    };
+
+    $scope.nextPage = function () {
+        $scope.operationsPage++;
+        $scope.updateOperations();
     };
 
     $scope.houseOperation = function (house, action, amount, reason) {
@@ -203,6 +217,7 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
             key: $scope.token,
             reason: reason
         }).then(function () {
+            $scope.operationsPage = 0;
             $scope.updateOperations();
         });
     };

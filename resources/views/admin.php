@@ -92,6 +92,8 @@
 
         <div id="operations">
           <h2>Operations</h2>
+          <button ng-click="previousPage()">{{'Previous' | translate}}</button>
+          <button style="float:right;" ng-click="nextPage()">{{'Next' | translate}}</button>
           <table border="1" cellpadding="8" class="operations">
             <thead class="capitalize">
               <tr>
