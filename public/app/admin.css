@@ -37,3 +37,7 @@ img.small {
 .valign-shield {
     vertical-align: 0.5em;
 }
+
+#operations, #operations table {
+    width: 100%;
+}
