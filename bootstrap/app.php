@@ -84,6 +84,8 @@ $app->routeMiddleware([
 $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
+$app->register(Rdehnhardt\MaintenanceMode\Providers\MaintenanceModeServiceProvider::class);
+
 if (env('APP_DEBUG') === true) {
     $app->register(Appzcoder\LumenRoutesList\RoutesCommandServiceProvider::class);
 }
