@@ -80,9 +80,10 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
         };
 
         var calcMinScore = function (houses, best, worst) {
-            if (worst < 1000)
-                return 0;
-            return worst - (best - worst);
+	    minScore = 0;
+	    while (minScore + $scope.scoreStep < worst)
+		minScore += $scope.scoreStep;
+            return minScore;
         };
 
         var calcWorstScore = function (houses, best) {
