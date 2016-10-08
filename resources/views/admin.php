@@ -58,6 +58,10 @@
                 <label for="reasonInput">{{'reason'|translate}}</label>
                 <textarea name="reason" id="reasonInput" cols="30" rows="10" ng-model="houseOperationData.reason"></textarea>
               </div>
+              <div>
+                <label for="publicReasonInput">{{'public reason'|translate}}</label>
+                <input type="text" name="public_reason" ng-model="houseOperationData.publicReason" id="publicReasonInput" maxlength="255">
+              </div>
               <input type="submit">
             </form>
           </div>
@@ -102,6 +106,7 @@
                 <td>{{'operation'|translate}}</td>
                 <td>{{'date'|translate}}</td>
                 <td>{{'reason'|translate}}</td>
+                <td>{{'public reason'|translate}}</td>
               </tr>
             </thead>
             <tbody>
@@ -114,6 +119,7 @@
                 <td>{{operation.action | to_op}} {{operation.amount}}</td>
                 <td>{{operation.updated_at}}</td>
                 <td>{{operation.reason}}</td>
+                <td>{{operation.public_reason}}</td>
               </tr>
             </tbody>
           </table>

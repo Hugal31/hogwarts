@@ -22,18 +22,19 @@ hogwartsApp
 
 hogwartsApp.config(function ($translateProvider) {
     $translateProvider.translations('fr', {
-	'slytherin': 'serpentard',
-	'ravenclaw': 'serdaigle',
-	'gryffindor': 'gryffondor',
-	'hufflepuff': 'poufsouffle',
-	'house': 'maison',
-	'user': 'utilisateur',
-	'operation': 'operation',
-	'amount': 'montant',
-	'reason': 'raison',
-	'add': 'ajouter',
-	'remove': 'retirer',
-	'set': 'fixer'
+        'slytherin': 'serpentard',
+        'ravenclaw': 'serdaigle',
+        'gryffindor': 'gryffondor',
+        'hufflepuff': 'poufsouffle',
+        'house': 'maison',
+        'user': 'utilisateur',
+        'operation': 'operation',
+        'amount': 'montant',
+        'reason': 'raison',
+        'public reason': 'raison publique',
+        'add': 'ajouter',
+        'remove': 'retirer',
+        'set': 'fixer'
     });
 });
 
@@ -150,7 +151,8 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
         house: "slytherin",
         action: "add",
         amount: undefined,
-        reason: ''
+        reason: null,
+        publicReason: null
     };
 
     $scope.createUserData = {
@@ -213,12 +215,13 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
         $scope.updateOperations();
     };
 
-    $scope.houseOperation = function (house, action, amount, reason) {
+    $scope.houseOperation = function (house, action, amount, reason, publicReason) {
         $http.put(api_host + '/api/v1/houses/' + house, {
             action: action,
             amount: amount,
             key: $scope.token,
-            reason: reason
+            reason: reason,
+            public_reason: publicReason
         }).then(function () {
             $scope.operationsPage = 0;
             $scope.updateOperations();
@@ -229,10 +232,12 @@ hogwartsApp.controller('AdminController', function ($scope, $cookies, $http, $tr
         $scope.houseOperation($scope.houseOperationData.house,
             $scope.houseOperationData.action,
             $scope.houseOperationData.amount,
-            $scope.houseOperationData.reason);
+            $scope.houseOperationData.reason,
+            $scope.houseOperationData.publicReason);
         $scope.houseOperationData.amount = 0;
         $scope.houseOperationData.action = 'add';
         $scope.houseOperationData.reason = null;
+        $scope.houseOperationData.publicReason = null;
     };
 
     $scope.createUser = function (name, email, password, admin) {
