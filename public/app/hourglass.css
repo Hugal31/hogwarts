@@ -214,12 +214,12 @@ body {
     top:5em;
     left:3em;
     flex:1;
-    animation: float 5s infinite alternate ease-in-out;
+    /*animation: float 5s infinite alternate ease-in-out;*/
 }
 
 #announce {
     font-size: 1.7em;
-    padding: 5em 3em;
+    padding: 3em 2em;
     font-family: serif;
     width: 500px;
     height: 764px;
@@ -242,4 +242,37 @@ body {
     display: -ms-flexbox; /* TWEENER - IE 10 */
     display: -webkit-flex; /* NEW - Chrome */
     display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+img.small {
+    height: 2em;
+}
+
+ul.crest li {
+    list-style: none;
+}
+
+ul.crest li::before {
+    list-style: none;
+    content: ' ';
+    display: inline-block;
+    background-size: 100% 100%;
+    height: 1em;
+    width: 1em;
+}
+
+ul.crest li[data-house="sly"]::before {
+    background-image: url(/img/shield_sly.png);
+}
+
+ul.crest li[data-house="rav"]::before {
+    background-image: url(/img/shield_rav.png);
+}
+
+ul.crest li[data-house="gry"]::before {
+    background-image: url(/img/shield_gry.png);
+}
+
+ul.crest li[data-house="huf"]::before {
+    background-image: url(/img/shield_huf.png);
 }

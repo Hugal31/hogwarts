@@ -62,6 +62,7 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
             score: 0
         }
     };
+    $scope.operations = [];
 
     $scope.update = function () {
 
@@ -106,6 +107,10 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
                 house.place = index + 1;
                 $scope.houses[house.name] = house;
             });
+        });
+
+        $http.get(api_host + '/api/v1/operations?limit=14').then(function(response) {
+            $scope.operations = response.data;
         });
     };
 

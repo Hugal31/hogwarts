@@ -40,15 +40,11 @@
         </div>
         <div id="announce-container">
           <div id="announce">
-            <h2>Information WEI</h2>
-	    <p><b>Ramener le papier + 20€ avant ce soir</b></p>
-            <p>Rendez-vous demain 7h30.</p>
-            <p>Pensez à amener:</p>
-            <ul>
-              <li>Un pique-nique pour le midi</li>
-              <li>Un maillot de bain</li>
-              <li>Un sac de couchage / tapis de sol / tente si vous avez</li>
-              <li>Des vêtements salissables</li>
+            <h3>Dèrnières mises-à-jour</h3>
+            <ul class="crest">
+              <li ng-repeat="operation in operations" data-house="{{operation.house.name|shortHouse}}">
+                {{operation.action | to_op}} {{operation.amount}} pour <span style="text-transform: lowercase">{{operation.public_reason}}</span>
+              </li>
             </ul>
           </div>
         </div>
