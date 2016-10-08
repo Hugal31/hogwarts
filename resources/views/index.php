@@ -40,10 +40,10 @@
         </div>
         <div id="announce-container">
           <div id="announce">
-            <h3>Dèrnières mises-à-jour</h3>
+            <h3>Dernières mises-à-jour</h3>
             <ul class="crest">
               <li ng-repeat="operation in operations" data-house="{{operation.house.name|shortHouse}}">
-                {{operation.action | to_op}} {{operation.amount}} pour <span style="text-transform: lowercase">{{operation.public_reason}}</span>
+                {{operation.action | to_op}} {{operation.amount}} : <span style="text-transform: lowercase">{{operation.public_reason}}</span>
               </li>
             </ul>
           </div>
