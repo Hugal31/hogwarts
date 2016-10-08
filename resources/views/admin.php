@@ -60,7 +60,7 @@
               </div>
               <div>
                 <label for="publicReasonInput">{{'public reason'|translate}}</label>
-                <input type="text" name="public_reason" ng-model="houseOperationData.publicReason" id="publicReasonInput" maxlength="255">
+                <input type="text" name="public_reason" ng-model="houseOperationData.publicReason" id="publicReasonInput" maxlength="255" required>
               </div>
               <input type="submit">
             </form>
