@@ -24,7 +24,7 @@ $app->get('/app/config.js', function () {
 });
 
 $app->get('/api/v1/version', function () {
-    system('GIT_DIR=/home/laloge_h/hogwarts.git git rev-parse HEAD');
+    system('GIT_DIR=' . env('GIT_DIR', base_path() . '/.git') . ' git rev-parse HEAD'); # TODO Find better way
 });
 
 $app->group([
