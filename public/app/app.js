@@ -46,6 +46,7 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
     $scope.autoRefresh = true;
     $scope.interval = 30000;
     $scope.scoreStep = 1000;
+    $scope.operationNumber = 10;
     $scope.minScore = 0;
     $scope.maxScore = $scope.minScore + $scope.scoreStep;
     $scope.houses = {
@@ -109,7 +110,7 @@ hogwartsApp.controller('HourglassController', function ($scope, $http, $interval
             });
         });
 
-        $http.get(api_host + '/api/v1/operations?limit=14').then(function(response) {
+        $http.get(api_host + '/api/v1/operations?limit='+$scope.operationNumber).then(function(response) {
             $scope.operations = response.data;
         });
     };
