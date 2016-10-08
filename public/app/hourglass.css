@@ -16,13 +16,8 @@ body {
     margin: 0 auto;
     padding: 0 auto;
     position: relative;
-    width: auto;
-}
-
-@media (min-width: 800px) {
-    #main-wrapper {
-        width: 800px;
-    }
+    width: 100%;
+    display: inline-block;
 }
 
 .hourglass {
@@ -202,4 +197,49 @@ body {
     top: 0.15em;
     color: white;
     font-size: 3em;
+}
+
+body {
+    padding: 0 10%;
+}
+
+@keyframes float {
+    from {top:5em;}
+    to {top:7em;}
+}
+
+#announce-container {
+    color:white;
+    position: relative;
+    top:5em;
+    left:3em;
+    flex:1;
+    animation: float 5s infinite alternate ease-in-out;
+}
+
+#announce {
+    font-size: 1.7em;
+    padding: 5em 3em;
+    font-family: serif;
+    width: 500px;
+    height: 764px;
+    background: url(/img/parchment.png) no-repeat;
+    background-size: cover;
+}
+
+#hourglasses-container {
+    height: 100%;
+    width: 800px;
+    position: relative;
+}
+
+#main-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
 }
