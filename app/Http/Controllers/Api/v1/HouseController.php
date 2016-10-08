@@ -88,6 +88,8 @@ class HouseController extends Controller
             ]);
             if ($request->get('reason'))
                 $operation->reason = $request->get('reason');
+            if ($request->get('public_reason'))
+                $operation->public_reason = $request->get('public_reason');
             $operation->user()->associate(User::where('api_token', $request->input('key'))->first());
             $operation->house()->associate($house);
             $operation->save();
