@@ -219,12 +219,17 @@ body {
 
 #announce {
     font-size: 1.7em;
-    padding: 3em 2em;
+    padding: 2.5em 2em;
     font-family: serif;
     width: 500px;
     height: 764px;
     background: url(/img/parchment.png) no-repeat;
     background-size: cover;
+    overflow: hidden;
+}
+
+#announce .title {
+    text-align: center;
 }
 
 #hourglasses-container {

@@ -40,7 +40,7 @@
         </div>
         <div id="announce-container">
           <div id="announce">
-            <h3>Derniers événements</h3>
+            <h3 class="title">Derniers événements</h3>
             <ul class="crest">
               <li ng-repeat="operation in operations" data-house="{{operation.house.name|shortHouse}}">
                 {{operation.action | to_op}} {{operation.amount}} : <span style="text-transform: lowercase">{{operation.public_reason}}</span>
