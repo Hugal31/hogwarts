@@ -22,7 +22,7 @@ class UserController extends Controller
     public function getUser(Request $request)
     {
         $user = User::where('api_token', $request->input('key'))->first();
-        return $user->makeVisible('admin')->toJson();
+        return $user->makeVisible('admin', 'email')->toJson();
     }
 
     public function getUsers()
