@@ -13,13 +13,12 @@ class UserSeeder extends Seeder
             throw new InvalidArgumentException("Please fill the ADMIN_PASSWORD env variable");
         }
 
-        if (User::where('email', 'admin@epitech.eu')->first() == null)
-            User::create([
-                'name' => 'admin',
-                'email' => 'admin@epitech.eu',
-                'password' => Hash::make($password),
-                'api_token' => str_random(32),
-                'admin' => true
-            ]);
+        User::firstOrcreate(['email' => 'admin@epitech.eu',], [
+            'name' => 'admin',
+            'email' => 'admin@epitech.eu',
+            'password' => Hash::make($password),
+            'api_token' => str_random(32),
+            'admin' => true
+        ]);
     }
 }
