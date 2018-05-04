@@ -1,6 +1,8 @@
 # Hogwarts
 
-Simple Hogwarts' houses points hourglasses for Epitech's Pool
+Simple Hogwarts' houses points hourglasses for Epitech's Pool.
+
+![Visual](docs/screenshot.jpg)
 
 ## Install
 
